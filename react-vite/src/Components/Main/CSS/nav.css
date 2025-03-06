@@ -1,0 +1,33 @@
+nav {
+    background-color: green;
+    padding: 1rem;
+  }
+  
+  nav .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  nav h1 {
+    color: white;
+  }
+  
+  .nav-list {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-list li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .nav-list li a:hover {
+    text-decoration: underline;
+  }
+  
