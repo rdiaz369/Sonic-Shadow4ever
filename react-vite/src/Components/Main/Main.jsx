@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAllChar } from "../../Services/Characters.js";
+import { getAllChar } from "../Services/Characters.jsx";
 import MainList from "./MainList.js";
 
 const Main = () => {
