@@ -2,7 +2,8 @@ import NavBar from "./Main/Navigation/NavBar.jsx";
 import CharacterForm from "./Main/Forms/CharacterForm.jsx";
 import OrderForm from "./Main/Forms/OrderForm.jsx";
 import RingsForm from "./Main/Forms/RingForm.jsx";
-
+import Main from "./Main/Main.jsx";
+//Components.jsx
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
 
@@ -11,7 +12,7 @@ export default function Components () {
         <Router>
             <NavBar />
             <Routes>
-            <Route path="/" element={<h1>Welcome to Green Hills</h1>} />
+            <Route path="/" element={<Main />} />
             <Route path="/characters" element={<CharacterForm />} />
             <Route path="/order" element={<OrderForm />} />
             <Route path="/rings" element={<RingsForm />} />

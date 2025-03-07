@@ -1,23 +1,49 @@
-import Parse from "../../../enviroments.js"; //using our parse
+import Parse from "parse"; //using our parse
+//Characters.jsx
 
-// Function to GET all characters from Back4App
-export const getAllChar = async () => {
-  const Character = Parse.Object.extend("Character");
-  const query = new Parse.Query(Character);
+export const getAllCharacters = () => {
+    const Character = Parse.Object.extend("Characters"); // Access the Characters class
+    const query = new Parse.Query(Character);
+    
+    // Query for the characters
+    return query
+        .find() // Fetch all records
+        .then((results) => {
+            console.log("Fetched characters:", results); // Check the fetched data
 
-  try {
-    const results = await query.find();
-    console.log("Fetched characters:", results);
-
-    // Convert Parse objects into plain JavaScript objects
-    return results.map((char) => ({
-      id: char.id,
-      firstName: char.get("firstName"),
-      lastName: char.get("lastName"),
-      powers: char.get("powers"),
-    }));
-  } catch (error) {
-    console.error("GET Error:", error);
-    return []; // Return an empty array on failure
-  }
+            // Map the results to a more readable structure
+            return results.map((char) => ({
+                id: char.id,
+                name: char.get("name"), // Assuming 'name' is the correct field in Back4App
+                gender: char.get("Gender"),
+                species: char.get("Species"),
+                powers: char.get("Powers"),
+                age: char.get("Age"),
+            }));
+        })
+        .catch((error) => {
+            console.error("Error fetching characters:", error);
+            return []; // Return an empty array if there's an error
+        });
+};
+  
+export const getCharacterById = async (id) => {
+    const Character = Parse.Object.extend("Characters");
+    const query = new Parse.Query(Character);
+    query.include("Powers");
+  
+    try {
+      const char = await query.get(id);
+      return {
+        id: char.id,
+        name: char.get("name"),
+        gender: char.get("Gender"),
+        species: char.get("Species"),
+        age: char.get("Age"),
+        powers: char.get("Powers") ? char.get("Powers").get("Powers") : "Unknown",
+      };
+    } catch (error) {
+      console.error("Error fetching character:", error);
+      return null;
+    }
 };
