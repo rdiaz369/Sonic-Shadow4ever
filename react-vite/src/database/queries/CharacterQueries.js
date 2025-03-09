@@ -47,15 +47,14 @@ export const createCharacterWithPowers = async (name, species, age, gender, powe
         // Step 1: Create a new Character
         const character = new Parse.Object('Characters');
         character.set('name', name);
-        character.set('species', species);
-        character.set('age', age);
-        character.set('gender', gender);
+        character.set('Species', species);
+        character.set('Age', age);
+        character.set('Gender', gender);
 
         // Save the character first, to get its objectId for the pointer
         await character.save();
 
         // Step 2: Create and link Powers using Pointers
-        const powerObjects = [];
         for (let powerName of powerNames) {
             const powerQuery = new Parse.Query(Powers);
             powerQuery.equalTo('name', powerName);
@@ -66,19 +65,14 @@ export const createCharacterWithPowers = async (name, species, age, gender, powe
                 // If not found, create the power
                 power = new Parse.Object('Powers');
                 power.set('name', powerName);
-                await power.save();  // Save the new power
             }
 
-            // Add the power to the character's powers relation
-            powerObjects.push(power); // Store power objects for the relation
+            // Set the pointer to the created character
+            power.set('character', character); // Set the pointer to the Character
+
+            // Save the power
+            await power.save();
         }
-
-        // Step 3: Add powers to the character's relation field
-        const relation = character.relation('powers');
-        powerObjects.forEach((power) => relation.add(power));
-
-        // Step 4: Save the character again after linking powers
-        await character.save();
 
         console.log('Character and powers saved successfully.');
     } catch (error) {
@@ -122,7 +116,6 @@ export const updateCharacterPowers = async (characterId, newPowers) => {
         const powerNames = newPowers.split(',').map(power => power.trim());
 
         // Step 2: Create and link new Powers using pointers
-        const powerObjects = [];
         for (let powerName of powerNames) {
             const powerQuery = new Parse.Query(Powers);
             powerQuery.equalTo('name', powerName);
@@ -131,18 +124,14 @@ export const updateCharacterPowers = async (characterId, newPowers) => {
             if (!power) {
                 power = new Parse.Object('Powers');
                 power.set('name', powerName);
-                await power.save();  // Save the new power
             }
 
-            powerObjects.push(power); // Store power objects for the relation
+            // Set the pointer to the character
+            power.set('character', character); // Set the pointer to the Character
+
+            // Save the power
+            await power.save();
         }
-
-        // Step 3: Add powers to the character's relation field
-        const relation = character.relation('powers');
-        powerObjects.forEach((power) => relation.add(power));
-
-        // Step 4: Save the character again after linking powers
-        await character.save();
 
         console.log('Character powers updated successfully.');
     } catch (error) {
@@ -166,7 +155,6 @@ export const addPowerToCharacter = async (characterId, powerName) => {
         if (!power) {
             power = new Parse.Object('Powers');
             power.set('name', powerName);
-            await power.save();  // Save the new power
         }
 
         // Set the pointer to the character
