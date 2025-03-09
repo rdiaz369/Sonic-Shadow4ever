@@ -8,9 +8,9 @@ import Parse from "parse";
 import Components from "./Components/Components.jsx";
 
 const Env = {
-    APPLICATION_ID: "x9VHmPclyWUGBSfJu3yKWpz8O6XEVOQUaFGPspPH",
-    JAVASCRIPT_KEY: "mh8k1ktEzjCnRXY4rLnQBi2ojtax4yv35y93Z5gY",
-    SERVER_URL: "https://parseapi.back4app.com"
+    APPLICATION_ID: "PKjKOcssJd3CaMrZjz9uZw22tqQuDFvDLnBXscHr",
+    JAVASCRIPT_KEY: "krT5X3UCecte6PzouAcln3SzpRqIuPJ0cC2Gyv5x",
+    SERVER_URL: "https://parseapi.back4app.com/"
 }
 
 // Initialize Parse
