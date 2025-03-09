@@ -17,19 +17,18 @@ const MainList = () => {
     <div>
       <h2>Character List</h2>
       <ul>
-        {characters.map((char) => {
-          // Check if char is an instance of Parse.Object
+        {characters.map((char, index) => {
           const isParseObject = char instanceof Parse.Object;
-          
+          const name = isParseObject ? char.get("name") : char.name;
+          const species = isParseObject ? char.get("Species") : char.Species;
+          const powers = isParseObject ? char.get("Powers") || [] : char.powers || [];
+
           return (
-            <li key={char.id}>
-              {/* Use .get() if it's a Parse Object, otherwise use direct access */}
-              {isParseObject ? char.get("name") : char.name} - 
-              {isParseObject ? char.get("Species") : char.species} - 
-              {/* Assuming Powers is now an array of related objects */}
-              {isParseObject && char.get("Powers") && char.get("Powers").length > 0 ? (
-                char.get("Powers").map((power, index) => (
-                  <span key={index}>{power.get("name")}</span> // Assuming Powers objects have a "name" property
+            <li key={char.id || index}>
+              {name} - {species} - 
+              {powers.length > 0 ? (
+                powers.map((power, idx) => (
+                  <span key={power.id || idx}>{power.get ? power.get("name") : power.name}</span>
                 ))
               ) : (
                 <span>No powers listed</span>

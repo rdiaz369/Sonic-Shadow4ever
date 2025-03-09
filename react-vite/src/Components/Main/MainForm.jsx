@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { createCharacter } from "../../database/queries/CharacterQueries";
+import { createCharacterWithPowers } from "../../database/queries/CharacterQueries";  // Update import name
 
 const MainForm = () => {
   const [name, setName] = useState("");
@@ -10,7 +10,7 @@ const MainForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await createCharacter(name, species, powers, age, gender);
+    await createCharacterWithPowers(name, species, age, gender, powers);  // Update function call
     alert("Character created successfully!");
   };
 

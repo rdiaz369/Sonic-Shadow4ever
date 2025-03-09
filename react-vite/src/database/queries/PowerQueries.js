@@ -1,13 +1,6 @@
 import Power from "../models/Power";
 import Parse from "parse";
 
-
-
-
-
-// src/database/queries/PowerQueries.js
-import Power from "../models/Power";
-
 export const getPowersByCharacter = async (characterId) => {
   const query = new Parse.Query(Power);
   query.equalTo("characters", { __type: "Pointer", className: "Character", objectId: characterId });
@@ -18,8 +11,6 @@ export const getPowersByCharacter = async (characterId) => {
     console.error("Error fetching powers:", error);
   }
 };
-
-
 
 // CREATE a new Power
 export const createPower = async (name) => {
