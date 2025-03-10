@@ -1,13 +1,14 @@
 import { useState } from "react";
 import "../CSS/order.css";
 
+//Order Form
 const OrderForm = () => {
   const [email, setEmail] = useState("");
 
   const handleChange = (e) => {
     setEmail(e.target.value);
   };
-
+//Submission form
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Order submitted for:", email);
@@ -20,7 +21,7 @@ const OrderForm = () => {
       <h2>Order Sonic Merch</h2>
       <label>
         Email:
-        <input
+        <input //enter your email
           type="email"
           name="email"
           value={email}
@@ -29,9 +30,10 @@ const OrderForm = () => {
           required
         />
       </label>
-      <button type="submit">Submit Order</button>
+      <button type="submit">Submit Order</button> 
+      {/* This is the button that handles submit */}
     </form>
   );
 };
-
+//Export outside
 export default OrderForm;

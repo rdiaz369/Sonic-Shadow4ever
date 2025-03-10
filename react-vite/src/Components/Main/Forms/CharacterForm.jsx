@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Parse from 'parse';
-import CharacterList from '../../../database/queries/CharacterList'; // Import CharacterList to display characters
-import PowerQuery from '../../../database/queries/PowerQuery'; // Import PowerQuery to assign powers
+import CharacterList from '../../../Services/CharacterList'; // Import CharacterList to display characters
+import PowerQuery from '../../../Services/PowerQuery'; // Import PowerQuery to assign powers
 
 const CharacterForm = () => {
   const [name, setName] = useState('');

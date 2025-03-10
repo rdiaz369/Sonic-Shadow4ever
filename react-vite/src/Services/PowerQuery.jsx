@@ -48,6 +48,7 @@ const PowerForm = () => {
     fetchCharacters();
   }, [refreshTrigger]); // Re-fetch the characters whenever refreshTrigger changes
 
+  // This is where we render our Powers
   return (
     <div>
       <h3>Character Powers</h3>

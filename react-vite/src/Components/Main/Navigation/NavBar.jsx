@@ -1,6 +1,16 @@
 import { Link } from "react-router-dom";
 import "../CSS/nav.css"; 
 
+
+// This is wehre we will have our navigation
+
+//Import styles
+
+//Habe navigation to home
+
+// have nav to Order
+
+// habe nav to Rings
 const NavBar = () => {
   return (
     <nav>
@@ -18,4 +28,5 @@ const NavBar = () => {
   );
 };
 
+// export the nav bar
 export default NavBar;
