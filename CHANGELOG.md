@@ -4,11 +4,11 @@
 
 Added:
     * Introduced Powers class with fields nameOfPower, age, and gender.
-    * Added relationship between Character and Powers via characterName pointer.
+    * Added relationship between Character and Powers via character name pointer.
     * Impleneted Parsing and Routing to replace our navigation
-    * Impleneted all .jsx files instead of .html
+    * Implemented all .jsx files instead of .html
 Changed:
-    * Used Online DataBase back4app as our JSON instead of localy sourcing it
+    * Used Online DataBase back4app as our JSON instead of locally sourcing it
 
 
 [0.1.0] - 2025 - 02 - 14
