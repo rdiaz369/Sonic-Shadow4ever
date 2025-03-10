@@ -14,7 +14,7 @@ Changed:
     * Used Online DataBase back4app as our JSON instead of locally sourcing it
 
 
-[0.1.0] - 2025 - 02 - 14
+<ins> [0.1.0] - 2025 - 02 - 14 </ins>
 
 Added:
 
