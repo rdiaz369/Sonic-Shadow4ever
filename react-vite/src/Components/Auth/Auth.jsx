@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { checkUser } from "./AuthService";
 
 const AuthModule = () => {
-    const navigate = useNavigate();
+    const navigate = useNavigate(); 
 
     // Redirect already authenticated users back to home
     useEffect(() => {
@@ -16,12 +16,12 @@ const AuthModule = () => {
 
     return (
         <div>
-            <Link to="/auth/register">
+            <Link to="/register">
                 <button>Register</button>
             </Link>
             <br />
             <br />
-            <Link to="/auth/login">
+            <Link to="/login">
                 <button>Login</button>
             </Link>
         </div>

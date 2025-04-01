@@ -13,12 +13,6 @@ const AuthLogin = () => {
   // flags in the state to watch for add/remove updates
   const [add, setAdd] = useState(false);
 
-  useEffect(() => {
-    if (checkUser()) {
-      alert("You are already logged in");
-      navigate("/");
-    }
-  }, [navigate]);
   // useEffect that run when changes are made to the state variable flags
   useEffect(() => {
     if (currentUser && add) {
@@ -27,7 +21,7 @@ const AuthLogin = () => {
           alert(
             `${userLoggedIn.get("firstName")}, you successfully logged in!`
           );
-          navigate("/");
+          navigate("/profile");
         }
         // TODO: redirect user to main app
         setAdd(false);

@@ -1,23 +1,20 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import { checkUser } from "../Auth/AuthService";
+import { Navigate, useNavigate } from "react-router-dom";
+import { checkUser } from "../Auth/AuthService";  // Import your checkUser method
 
-// You can pass props using the spread operator to throw them on an object if there are too many to break out
 const ProtectedRoute = ({ element: Component, ...rest }) => {
-  console.log("element: ", Component);
   const navigate = useNavigate();
-  const goBackHandler = () => {
-    navigate("/auth");
-  };
-  if (checkUser()) {
-    return <Component />;
-  } else {
-    return (
-      <div>
-        <p>Unauthorized!</p> <button onClick={goBackHandler}>Go Back.</button>
-      </div>
-    );
+
+  // Check if the user is already logged in
+  const isAuthenticated = checkUser();
+
+  // If the user is not authenticated and tries to access a protected route, redirect them to login
+  if (!isAuthenticated && rest.path !== "/login" && rest.path !== "/register") {
+    return <Navigate to="/" replace />;
   }
+
+  // If the user is authenticated and accessing a protected route, render the component
+  return <Component />;
 };
 
 export default ProtectedRoute;

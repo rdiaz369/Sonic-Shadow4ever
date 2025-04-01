@@ -20,7 +20,7 @@ const AuthRegister = () => {
   useEffect(() => {
     if (checkUser()) {
       alert("You are already logged in");
-      navigate("/");
+      navigate("/profile");
     }
   }, [navigate]);
 
