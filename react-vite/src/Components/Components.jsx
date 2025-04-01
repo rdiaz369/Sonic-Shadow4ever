@@ -27,7 +27,8 @@ export default function Components () {
             <Route path="/" element={<AuthModule />} />
             <Route path="/register" element={<AuthRegister />} />
             <Route path="/login" element={<AuthLogin />} />
-            <Route path="/logout" element={<AuthLogout />} />
+            {/* allows user to type in 'logout' in the url to logout instead of going to profile tab */}
+            {/* <Route path="/logout" element={<AuthLogout />} /> */}
             {/* Protected Routes */}
             <Route
           path="/profile"
