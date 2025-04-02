@@ -8,7 +8,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, '/src'),
-      parse: path.resolve(__dirname, './node_modules/parse/dist/parse.min.js')
+       parse: path.resolve(__dirname, './node_modules/parse/dist/parse.min.js')
     },
   },
 })
+
