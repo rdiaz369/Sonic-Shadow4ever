@@ -4,8 +4,8 @@
 
 Added:
 
-    * Introduced User Register with user, email, name, password
-    * Introduced User Login with User, Password
+    * Introduced User Register with email, name, password
+    * Introduced User Login with email, Password
     * Added Credentials to out back4app database
     * Added a protected route for data security
     * Added a Logout Button to log the user out
