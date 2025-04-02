@@ -1,5 +1,19 @@
 # Changelog
 
+<ins> [0.3.0] - 2025 - 04 - 01 </ins>
+
+Added:
+
+    * Introduced User Register with user, email, name, password
+    * Introduced User Login with User, Password
+    * Added Credentials to out back4app database
+    * Added a protected route for data security
+    * Added a Logout Button to log the user out
+    * Added Authentication to ensure user was logged in before continuing to website
+    * Added Profile to Navigation
+    * Have an alert system to alert you if you are authenticated or not
+
+
 <ins> [0.2.0] - 2025 - 03 - 09 </ins>
 
 Added:
