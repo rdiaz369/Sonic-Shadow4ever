@@ -5,6 +5,7 @@ import "../CSS/rings.css";
 const RingsCounter = () => {
   const [rings, setRings] = useState(0);
 
+
   const handleAddRing = () => {
     const newCount = rings + 1;
     setRings(newCount);
@@ -23,3 +24,4 @@ const RingsCounter = () => {
 };
 
 export default RingsCounter;
+
