@@ -59,14 +59,19 @@ const AuthLogin = () => {
     setAdd(true);
   };
 
+  
+  // add bootstrap to style (keep consisten green theme)
   return (
-    <div>
+    <div className="container d-flex justify-content-center align-items-center" >
+      <div className="card p-4 shadow" style={{ width: "400px" }}>
+      <h2 className="text-center mb-4">Login</h2>
       <AuthForm
         user={currentUser}
         isLogin={true}
         onChange={onChangeHandler}
         onSubmit={onSubmitHandler}
       />
+    </div>
     </div>
   );
 };

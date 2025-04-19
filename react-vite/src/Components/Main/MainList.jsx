@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Parse from "parse"; // Make sure you have Parse properly imported for checking the user
+import Parse from "parse"; 
 import AuthLogout from "../Auth/AuthLogout.jsx"; //want to add the logout button on the profile tab
 
 /* STATEFUL PARENT COMPONENT */
@@ -20,18 +20,20 @@ const MainList = () => {
   }
 
   return (
-    <div>
-      
+    <div className="container d-flex flex-column justify-content-center align-items-center"   style={{ minHeight: "100vh"}}>      
+      <div className="card shadow p-4" style={{ width: "400px", backgroundColor: "white", borderRadius: "15px" }}>
       <h2>Welcome, {user.get("username")}</h2>
       <p>Profile information:</p>
-      <ul>
-        <li>First Name: {user.get("firstName")}</li>
-        <li>Last Name: {user.get("lastName")}</li>
-        <li>Email: {user.get("email")}</li>
-      </ul>
+      <ul className="list-group mb-4">
+          <li className="list-group-item"><strong>First Name:</strong> {user.get("firstName")}</li>
+          <li className="list-group-item"><strong>Last Name:</strong> {user.get("lastName")}</li>
+          <li className="list-group-item"><strong>Email:</strong> {user.get("email")}</li>
+        </ul>
       {/* logout button added here */}
-      <hr />
-      <AuthLogout />
+      <div className="text-center">
+          <AuthLogout />
+      </div>
+     </div>
     </div>
   );
 };

@@ -14,18 +14,20 @@ const AuthModule = () => {
         }
     }, [navigate]);
 
+    // add bootstrap styling to root page
     return (
-        <div>
-            <Link to="/register">
-                <button>Register</button>
-            </Link>
-            <br />
-            <br />
-            <Link to="/login">
-                <button>Login</button>
-            </Link>
-        </div>
-    );
+      <div className="container d-flex justify-content-center align-items-center" >
+          <div className="card p-4 shadow" style={{ width: "400px" }}>
+            <h2 className="text-center mb-4">Welcome to Green Hills!</h2>
+              <Link to="/register">
+                <button className="btn btn-outline-success btn-lg">Register</button>
+              </Link>
+              <Link to="/login">
+                <button className="btn btn-outline-success btn-lg">Login</button>
+              </Link>
+            </div>
+      </div>
+      );
 };
 
 export default AuthModule;

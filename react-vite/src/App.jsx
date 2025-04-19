@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import Parse from "parse";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Components from "./Components/Components.jsx";
 
