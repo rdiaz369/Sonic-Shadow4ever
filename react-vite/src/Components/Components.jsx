@@ -11,6 +11,8 @@ import AuthLogin from "./Auth/AuthLogin.jsx";
 import AuthLogout from "./Auth/AuthLogout.jsx";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute.jsx";
 import MainList from "./Main/MainList.jsx";
+import SonicQuiz from "./Quiz/QuizComponent.jsx"; // add this at top
+
 //import CharacterList from "../database/queries/CharacterList.jsx"
 
 export default function Components () {
@@ -22,7 +24,8 @@ export default function Components () {
             <Route path="/home" element={<CharacterForm />} />
             <Route path="/order" element={<OrderForm />} />
             <Route path="/rings" element={<RingsForm />} />
-            {/* <Route path="/characters" element={<CharacterList />} /> */}
+            <Route path="/quiz" element={<SonicQuiz />} />
+
             {/* Authenticated routes */}
             <Route path="/" element={<AuthModule />} />
             <Route path="/register" element={<AuthRegister />} />

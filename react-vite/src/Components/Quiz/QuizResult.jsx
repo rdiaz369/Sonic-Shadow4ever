@@ -1,1 +1,0 @@
-//result screen of the quiz
