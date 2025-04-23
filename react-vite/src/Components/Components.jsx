@@ -3,7 +3,6 @@ import OrderForm from "./Main/Forms/OrderForm.jsx";
 import RingsForm from "./Main/Forms/RingForm.jsx";
 import React from 'react';
 import CharacterForm from "./Main/Forms/CharacterForm.jsx";
-//import './App.css';
 import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import AuthModule from "./Auth/Auth.jsx";
 import AuthRegister from "./Auth/AuthRegister.jsx";
@@ -12,6 +11,7 @@ import AuthLogout from "./Auth/AuthLogout.jsx";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute.jsx";
 import MainList from "./Main/MainList.jsx";
 import SonicQuiz from "./Quiz/QuizComponent.jsx"; // add this at top
+import FavoritesPage from './Main/Forms/FavoritesPage.jsx';
 
 //import CharacterList from "../database/queries/CharacterList.jsx"
 
@@ -30,8 +30,8 @@ export default function Components () {
             <Route path="/" element={<AuthModule />} />
             <Route path="/register" element={<AuthRegister />} />
             <Route path="/login" element={<AuthLogin />} />
-            {/* allows user to type in 'logout' in the url to logout instead of going to profile tab */}
-            {/* <Route path="/logout" element={<AuthLogout />} /> */}
+            <Route path="/favorites" component={FavoritesPage} />
+
             {/* Protected Routes */}
             <Route
           path="/profile"

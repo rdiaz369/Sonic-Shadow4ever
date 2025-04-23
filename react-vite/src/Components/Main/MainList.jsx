@@ -5,14 +5,33 @@ import AuthLogout from "../Auth/AuthLogout.jsx"; //want to add the logout button
 /* STATEFUL PARENT COMPONENT */
 const MainList = () => {
   const [user, setUser] = useState(null);
+  const [favorites, setFavorites] = useState([]);
+
 
   useEffect(() => {
     // Check if the user is logged in
     const currentUser = Parse.User.current();
     if (currentUser) {
       setUser(currentUser);
+      fetchFavorites(currentUser);
     }
   }, []);
+
+  const fetchFavorites = async (currentUser) => {
+    try {
+      const favoritesRelation = currentUser.relation('favorites');
+      const results = await favoritesRelation.query().find();
+
+      const favoriteCharacters = results.map((char) => ({
+        id: char.id,
+        name: char.get('name'),
+      }));
+
+      setFavorites(favoriteCharacters);
+    } catch (error) {
+      console.error('Error fetching favorites:', error);
+    }
+  };
 
   if (!user) {
     // If there's no logged-in user, you can render a message or redirect them to login
@@ -29,6 +48,23 @@ const MainList = () => {
           <li className="list-group-item"><strong>Last Name:</strong> {user.get("lastName")}</li>
           <li className="list-group-item"><strong>Email:</strong> {user.get("email")}</li>
         </ul>
+
+      {/* Show favorite characters*/}
+      <div className="mb-4">
+          <h4>My Favorite Characters</h4>
+          {favorites.length === 0 ? (
+            <p>You have no favorites yet.</p>
+          ) : (
+            <ul className="list-group">
+            {favorites.map((char) => (
+              <li key={char.id} className="list-group-item d-flex align-items-center justify-content-between">
+                <span>⭐ {char.name}</span>
+              </li>
+            ))}
+          </ul>
+          )}
+        </div>
+        
       {/* logout button added here */}
       <div className="text-center">
           <AuthLogout />
