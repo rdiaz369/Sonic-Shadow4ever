@@ -1,5 +1,19 @@
 # Changelog
 
+<ins> [0.4.0] - 2025 - 04 - 27 </ins>
+
+Added:
+
+    * Implemented a quiz feature using `react-quiz-component` to test users' knowledge of Sonic and Green Hills.
+    * Added a "Favorites" feature on the home page, allowing logged-in users to add or remove characters from their favorites list, displayed on their profile tab.
+    * Added character images on the home page for a more visual and engaging experience.
+
+    
+Changed:
+
+    * Styled the authentication module using Bootstrap for improved UI consistency
+
+
 <ins> [0.3.0] - 2025 - 04 - 01 </ins>
 
 Added:
