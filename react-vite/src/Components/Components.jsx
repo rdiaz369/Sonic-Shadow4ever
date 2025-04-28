@@ -11,6 +11,7 @@ import AuthLogin from "./Auth/AuthLogin.jsx";
 import AuthLogout from "./Auth/AuthLogout.jsx";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute.jsx";
 import MainList from "./Main/MainList.jsx";
+import ResetPassword from "./Auth/ResetPassword.jsx";
 //import CharacterList from "../database/queries/CharacterList.jsx"
 
 export default function Components () {
@@ -27,6 +28,7 @@ export default function Components () {
             <Route path="/" element={<AuthModule />} />
             <Route path="/register" element={<AuthRegister />} />
             <Route path="/login" element={<AuthLogin />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
             {/* allows user to type in 'logout' in the url to logout instead of going to profile tab */}
             {/* <Route path="/logout" element={<AuthLogout />} /> */}
             {/* Protected Routes */}

@@ -1,5 +1,9 @@
 import React from "react";
-const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
+import { useNavigate } from "react-router-dom";
+
+const AuthForm = ({ user, isLogin, onChange, onSubmit}) => {
+  const navigate = useNavigate(); 
+
   return (
     <form onSubmit={onSubmit} autoComplete="off">
       {!isLogin ? (
@@ -65,11 +69,27 @@ const AuthForm = ({ user, isLogin, onChange, onSubmit }) => {
             placeholder="password"
             required
           />
+          
         </div>
         <div className="form-group">
           <button type="submit" className="btn btn-primary" onSubmit={onSubmit}>
             Submit
           </button>
+          { isLogin && (
+            <div style = {{ marginTop: "10px" }}>
+              <button type="button"
+                onClick={() => navigate("/reset-password")}
+                style={{
+                  background: "none",
+                  border: "none",
+                  color: "blue",
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  padding: 0,}}>
+                Forgot Password?                
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </form>

@@ -10,6 +10,7 @@ const CharacterForm = () => {
   const [powerGender, setPowerGender] = useState(''); // New state for power gender
   const [characterToDelete, setCharacterToDelete] = useState(''); // State to store the character name to delete
   const [refreshTrigger, setRefreshTrigger] = useState(false); // State to trigger refresh
+  const [searchQuery, setSearchQuery] = useState(''); // New state for search query
 
   // Function to create a new character and its power
   const handleSubmit = async (e) => {
@@ -123,8 +124,9 @@ const CharacterForm = () => {
       <hr />
 
       <div style={{ color: 'Green' }}>
-        <h3>Character List</h3>
-        <CharacterList refreshTrigger={refreshTrigger} /> {/* Pass refreshTrigger to CharacterList */}
+        <h3>Character List</h3>      
+        {/* Pass the search query to CharacterList */}
+        <CharacterList refreshTrigger={refreshTrigger} searchQuery={searchQuery} />
       </div>
 
       <hr />
