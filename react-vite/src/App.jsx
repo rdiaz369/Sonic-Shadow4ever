@@ -5,7 +5,8 @@ import './App.css'
 
 
 import Parse from "parse";
-import { algoliasearch } from 'algoliasearch';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Components from "./Components/Components.jsx";
 

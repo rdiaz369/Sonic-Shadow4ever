@@ -5,36 +5,15 @@ import { useNavigate } from "react-router-dom";
 import Parse from "parse";
 
 const AuthLogin = () => {
-
   const navigate = useNavigate();
-  // redirect already authenticated users back to home
   const [currentUser, setCurrentUser] = useState({
     email: "",
     password: "",
   });
-  // flags in the state to watch for add/remove updates
   const [add, setAdd] = useState(false);
-  
-  // Reset Password
-  const doUserResetPassword = async function () {
-    const emailValue = currentUser.email;
-  
-    if (!emailValue) {
-      alert("Please enter your email to reset your password.");
-      return;
-    }
-  
-    try {
-      await Parse.User.requestPasswordReset(emailValue);
-      alert("Password successfully reset. Check your email.");
-    } catch (error) {
-      alert("Error: " + error.message);
-    }
-  };
-  
 
- // Check if the user is already logged in
- useEffect(() => {
+  // Check if the user is already logged in
+  useEffect(() => {
     const user = checkUser(); // Call your checkUser function to get the current user
 
     if (user) {
@@ -43,7 +22,6 @@ const AuthLogin = () => {
       navigate("/profile"); // Redirect to profile
     }
   }, [navigate]);
-
 
   // useEffect that run when changes are made to the state variable flags
   useEffect(() => {
@@ -55,7 +33,6 @@ const AuthLogin = () => {
           );
           navigate("/profile");
         }
-        // TODO: redirect user to main app
         setAdd(false);
       });
     }
@@ -63,9 +40,7 @@ const AuthLogin = () => {
 
   const onChangeHandler = (e) => {
     e.preventDefault();
-    console.log(e.target);
     const { name, value: newValue } = e.target;
-    console.log(newValue);
 
     setCurrentUser({
       ...currentUser,
@@ -75,19 +50,20 @@ const AuthLogin = () => {
 
   const onSubmitHandler = (e) => {
     e.preventDefault();
-    console.log("submitted: ", e.target);
     setAdd(true);
   };
 
   return (
-    <div>
-      <AuthForm
-        user={currentUser}
-        isLogin={true}
-        onChange={onChangeHandler}
-        onSubmit={onSubmitHandler}
-        onResetPassword={doUserResetPassword}
-      />
+    <div className="container d-flex justify-content-center align-items-center">
+      <div className="card p-4 shadow" style={{ width: "400px" }}>
+        <h2 className="text-center mb-4">Login</h2>
+        <AuthForm
+          user={currentUser}
+          isLogin={true}
+          onChange={onChangeHandler}
+          onSubmit={onSubmitHandler}
+        />
+      </div>
     </div>
   );
 };
