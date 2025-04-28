@@ -10,6 +10,7 @@ const CharacterForm = () => {
   const [powerGender, setPowerGender] = useState(''); // New state for power gender
   const [characterToDelete, setCharacterToDelete] = useState(''); // State to store the character name to delete
   const [refreshTrigger, setRefreshTrigger] = useState(false); // State to trigger refresh
+  const [searchQuery, setSearchQuery] = useState(''); // New state for search query
 
   // Function to create a new character and its power
   const handleSubmit = async (e) => {
@@ -87,57 +88,88 @@ const CharacterForm = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <br />
-        <h3 style={{ color: 'Green' }}>Create a New Character</h3>
-        <input
-          type="text"
-          placeholder="Character Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-        {/* Power Inputs */}
-        <input
-          type="text"
-          placeholder="Power Name"
-          value={powerName}
-          onChange={(e) => setPowerName(e.target.value)}
-        />
-        <input
-          type="number"
-          placeholder="Age"
-          value={powerAge}
-          onChange={(e) => setPowerAge(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Gender"
-          value={powerGender}
-          onChange={(e) => setPowerGender(e.target.value)}
-        />
-        <button type="submit">Add Character and Power</button>
-      </form>
-
-      <hr />
-
-      <div style={{ color: 'Green' }}>
-        <h3>Character List</h3>
-        <CharacterList refreshTrigger={refreshTrigger} /> {/* Pass refreshTrigger to CharacterList */}
+    <div className="container-fluid mt-5 px-3"> {/* Added px-3 to add padding */}
+      {/* Add Character Form */}
+      <div className="card p-4 mb-4 shadow mx-auto" style={{ maxWidth: '600px' }}>
+        <h3 style={{ color: 'green' }} className="text-center mb-3">
+          Create a New Character
+        </h3>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <input
+              type="text"
+              placeholder="Character Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="form-control"
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <input
+              type="text"
+              placeholder="Power Name"
+              value={powerName}
+              onChange={(e) => setPowerName(e.target.value)}
+              className="form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <input
+              type="number"
+              placeholder="Age"
+              value={powerAge}
+              onChange={(e) => setPowerAge(e.target.value)}
+              className="form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <input
+              type="text"
+              placeholder="Gender"
+              value={powerGender}
+              onChange={(e) => setPowerGender(e.target.value)}
+              className="form-control"
+            />
+          </div>
+          <div className="text-center">
+            <button type="submit" className="btn btn-outline-success">
+              Add Character and Power
+            </button>
+          </div>
+        </form>
       </div>
 
-      <hr />
+      {/* Character List */}
+      <div className="mb-4">
+        <h3 style={{ color: 'green' }} className="text-center mb-3">
+          Character List
+        </h3>
+        <CharacterList refreshTrigger={refreshTrigger} searchQuery={searchQuery} />
+      </div>
 
-      <div>
-        <h3 style={{color: 'Green'}}>Delete Character</h3>
-        <input
-          type="text"
-          placeholder="Character Name to Delete"
-          value={characterToDelete}
-          onChange={(e) => setCharacterToDelete(e.target.value)}
-        />
-        <button onClick={handleDeleteCharacter}>Delete Character</button>
+      {/* Delete Character Form */}
+      <div className="card p-4 shadow mx-auto" style={{ maxWidth: '600px' }}>
+        <h3 style={{ color: 'green' }} className="text-center mb-3">
+          Delete Character
+        </h3>
+        <div className="mb-3">
+          <input
+            type="text"
+            placeholder="Character Name to Delete"
+            value={characterToDelete}
+            onChange={(e) => setCharacterToDelete(e.target.value)}
+            className="form-control"
+          />
+        </div>
+        <div className="text-center">
+          <button
+            onClick={handleDeleteCharacter}
+            className="btn btn-outline-danger"
+          >
+            Delete Character
+          </button>
+        </div>
       </div>
     </div>
   );

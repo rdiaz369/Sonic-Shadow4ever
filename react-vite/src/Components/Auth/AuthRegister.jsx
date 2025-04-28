@@ -59,13 +59,20 @@ const AuthRegister = () => {
     setAdd(true);
   };
 
-  return (
-    <div>
-      <AuthForm
-        user={newUser}
-        onChange={onChangeHandler}
-        onSubmit={onSubmitHandler}
-      />
+
+  // add boostrap
+  return ( 
+    <div className="container d-flex justify-content-center align-items-center" style={{ minHeight: "100vh" }}>
+      <div className="card p-4 shadow" style={{ width: "400px" }}>
+        <h2 className="text-center mb-4" >Register</h2>
+    
+        <AuthForm
+          user={newUser}
+          isLogin={false}
+          onChange={onChangeHandler}
+          onSubmit={onSubmitHandler}
+        />
+      </div>
     </div>
   );
 };
