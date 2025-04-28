@@ -7,11 +7,15 @@ Added:
     * Implemented a quiz feature using `react-quiz-component` to test users' knowledge of Sonic and Green Hills.
     * Added a "Favorites" feature on the home page, allowing logged-in users to add or remove characters from their favorites list, displayed on their profile tab.
     * Added character images on the home page for a more visual and engaging experience.
+    * Implemented a forgot passowrd link that reroutes the user to a page where they enter the email they registered with to reset their password.
+    * Implemented Elastic Search using Algolia that can group characters based on similar words based on their characteristics.
 
     
 Changed:
 
     * Styled the authentication module using Bootstrap for improved UI consistency
+    * Styled add and delete characters
+    * Styled Profile page
 
 
 <ins> [0.3.0] - 2025 - 04 - 01 </ins>
