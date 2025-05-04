@@ -12,4 +12,9 @@ This is a fun, interactive web application for Sonic fans. It allows users to cr
 * Implemented Forgot Password in LoginForm
 * Implemented Elastic Search for characters, including names, powers, age, and gender
 * Change the styling for creating a character and deleting a character
-* modified profile page styling
+* Modified profile page styling
+
+**Running Application"**
+
+* npm install parse
+* npm install algoliasearch
