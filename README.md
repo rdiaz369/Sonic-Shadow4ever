@@ -18,3 +18,4 @@ This is a fun, interactive web application for Sonic fans. It allows users to cr
 
 * npm install parse
 * npm install algoliasearch
+* npm install react-router-dom
