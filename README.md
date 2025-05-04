@@ -14,7 +14,7 @@ This is a fun, interactive web application for Sonic fans. It allows users to cr
 * Change the styling for creating a character and deleting a character
 * Modified profile page styling
 
-**Running Application"**
+**Running Application:**
 
 * npm install parse
 * npm install algoliasearch
